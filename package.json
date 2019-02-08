@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --open --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "coveralls": "nyc npm run test && nyc report --reporter=text-lcov | coveralls "
   },
   "keywords": [],
   "author": "",
@@ -31,5 +32,10 @@
     "webpack": "^4.29.3",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.1.14"
-  }
+  },
+  "jest": {
+    "collectCoverage": true,
+    "coverageReporters": ["lcov"],
+    "collectCoverageFrom": ["src/**/*.{js,jsx,ts,tsx}"]
+}
 }
