@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import Input from "../presentational/Input.jsx";
+import Input from "../components/presentational/Input.jsx";
 
 class FormContainer extends Component {
   state = {seo_title: ""};
