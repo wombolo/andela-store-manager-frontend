@@ -1,10 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import FormContainer from "../src/js/containers/FormContainer.jsx";
+import { shallow } from 'enzyme';
+import App from '../src/App.jsx';
 
-
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<FormContainer />, div);
-  ReactDOM.unmountComponentAtNode(div);
+let wrapper;
+beforeEach(() => {
+  wrapper = shallow(<App />);
 });
+
+describe('App Component', () => {
+  it('renders without crashing', () => {
+    expect(wrapper).toMatchSnapshot();
+  })
+});
+
