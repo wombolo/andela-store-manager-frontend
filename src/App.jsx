@@ -7,9 +7,14 @@ export default class App extends Component {
   render() {
     return (
       <Router>
-        <div>
-          <Menu/>
-          <Routes/>
+        <div className='row'>
+          <div className='col-2 no-margin no-padding'>
+            <Menu/>
+          </div>
+
+          <div className='col-8'>
+            <Routes/>
+          </div>
         </div>
       </Router>
     )
