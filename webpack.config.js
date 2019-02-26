@@ -26,6 +26,12 @@ module.exports = {
       }
     ]
   },
+  devtool: 'inline-source-map',
+  devServer: {
+    contentBase: './src',
+    historyApiFallback: true,
+    port: 8080,
+  },
   plugins: [
     new HtmlWebPackPlugin({
       template: './src/index.html',

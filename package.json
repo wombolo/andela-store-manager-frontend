@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --mode production",
     "start": "node server.js",
-    "test": "jest",
+    "test": "jest --env=jsdom  --coverage --colors -u",
     "start:dev": "webpack-dev-server --open --mode development",
     "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
     "heroku-prebuild": "npm install",
@@ -16,19 +16,26 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.18.0",
+    "babel-polyfill": "^6.26.0",
     "css-loader": "^2.1.0",
     "express": "^4.16.4",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "jest": "^24.1.0",
+    "jwt-decode": "^2.2.0",
     "mini-css-extract-plugin": "^0.5.0",
     "node-sass": "^4.11.0",
     "postcss-loader": "^3.0.0",
     "prop-types": "^15.6.2",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
+    "react-redux": "^6.0.1",
+    "react-router-dom": "^4.3.1",
     "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
     "sass-loader": "^7.1.0",
+    "sweetalert": "^2.1.2",
     "webpack": "^4.29.3",
     "webpack-cli": "^3.2.3"
   },
@@ -39,13 +46,28 @@
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
     "coveralls": "^3.0.2",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.9.1",
+    "enzyme-to-json": "^3.3.5",
     "webpack-dev-server": "^3.1.14"
   },
   "jest": {
-    "collectCoverage": true,
-    "coverageReporters": [
-      "lcov"
+    "setupFilesAfterEnv": [
+      "<rootDir>/tests/setup/setupEnzyme.js"
     ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/tests/__mocks__/",
+      "<rootDir>/tests/setup/"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/src/utils"
+    ],
+
+
+
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}"
     ],
