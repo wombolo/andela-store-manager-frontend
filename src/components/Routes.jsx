@@ -8,7 +8,6 @@ import GuestRoute from "./GuestRoute.jsx";
 import PrivateRoute from "./PrivateRoute.jsx";
 import NotFound from "./NotFound.jsx"
 import Dashboard from "./Dashboard.jsx";
-import AllProducts from "./AllProducts.jsx";
 
 const Routes = () => (
   <Switch>
