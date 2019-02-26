@@ -2,7 +2,7 @@
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 import {ACTION_TYPES} from './action-types';
-import { basePath } from '../utils/basePath';
+import vyStoreBackend from '../apis/vyStoreBackend'
 import Notify from '../utils/Notify';
 
 const {
@@ -24,7 +24,7 @@ export const setUserError = error => ({
 export const loginUser = userData => async (dispatch) => {
   dispatch(setUserRequest());
   try {
-    const res = await axios.post(`${basePath}/auth/login`, userData);
+    const res = await vyStoreBackend.post('/auth/login', userData);
 
     const { token } = res.data;
     const decoded = jwt_decode(token);

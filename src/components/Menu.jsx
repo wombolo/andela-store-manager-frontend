@@ -24,7 +24,11 @@ export class Menu extends Component {
         <React.Fragment>
           <NavLink to="/" className='links'>Home</NavLink>
           <NavLink to="/dashboard" className='links'>Dashboard</NavLink>
-          <NavLink to="/login" className='links' onClick={this.handleLogout}>Logout</NavLink>
+          <div className='links'>
+            <NavLink to="/all-products" className='links'>All Products</NavLink>
+
+            <NavLink to="/login" className='links' onClick={this.handleLogout}>Logout</NavLink>
+          </div>
         </React.Fragment>);
     }
     return links;

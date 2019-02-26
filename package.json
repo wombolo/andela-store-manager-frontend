@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --mode production",
     "start": "node server.js",
-    "test": "jest",
+    "test": "jest --env=jsdom  --coverage --colors -u",
     "start:dev": "webpack-dev-server --open --mode development",
     "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
     "heroku-prebuild": "npm install",
@@ -46,13 +46,28 @@
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
     "coveralls": "^3.0.2",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.9.1",
+    "enzyme-to-json": "^3.3.5",
     "webpack-dev-server": "^3.1.14"
   },
   "jest": {
-    "collectCoverage": true,
-    "coverageReporters": [
-      "lcov"
+    "setupFilesAfterEnv": [
+      "<rootDir>/tests/setup/setupEnzyme.js"
     ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/tests/__mocks__/",
+      "<rootDir>/tests/setup/"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/src/utils"
+    ],
+
+
+
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}"
     ],

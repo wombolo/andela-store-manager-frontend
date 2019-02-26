@@ -151,16 +151,32 @@ tfoot td{background: $primary-blue;color: #ffffff;padding: 2em; }
 .dashboard figure img{max-width: 200px;height: 200px;margin: 0 auto;display: block;}
 .dashboard .col-3{text-align: center}
 figure{margin: 10px 0;}
-.sidebar-menu{
-    background: linear-gradient(45deg,$secondary-blue,$primary-blue);
+.sidebar-menu {
+    background: linear-gradient(45deg, $secondary-blue, $primary-blue);
 
-    .links{
+    .links {
         display: block;
         padding: 3em;
-        //background: $primary-blue;
         color: #ffffff;
         height: ceil(100vh / 3);
+
+        .links {
+            height: auto;
+        }
+
+        .active {
+            border-bottom: 2px solid white;
+        }
+
     }
+
+
 }
 .no-padding{padding: 0}
 .no-margin{margin: 0}
+.products-row{
+    overflow-x: auto;
+    div{
+        width: 24em;
+    }
+}
