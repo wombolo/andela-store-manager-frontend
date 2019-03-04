@@ -12,7 +12,7 @@ export const PrivateRoute = ({ component: Component, auth, ...rest }) => (
 );
 
 PrivateRoute.propTypes = {
-  auth: PropTypes.object.isRequired,
+  auth: PropTypes.shape({}).isRequired,
   component: PropTypes.func.isRequired,
 };
 

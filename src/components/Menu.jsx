@@ -4,14 +4,14 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 export class Menu extends Component {
-
   handleLogout = () => {
     localStorage.clear();
     window.location.reload();
-  }
+  };
 
-  headerLinks = (isAuthenticated) => {
+  headerLinks = ({isAuthenticated, user}) => {
     let links;
+
     if (!isAuthenticated) {
       links = (
         <React.Fragment>
@@ -20,6 +20,17 @@ export class Menu extends Component {
           <i className='links'> </i>
         </React.Fragment>);
     } else {
+
+      const {profile} = user;
+      const AdminLinks = [
+        { to: '/add-product', name: 'Add New Product'}
+      ];
+      const AttendantLinks =[
+        { to: '/my-sales', name: 'My Sales'}
+      ];
+
+      const thisUserLinks = profile.role === 'admin' ? AdminLinks :AttendantLinks ;
+
       links = (
         <React.Fragment>
           <NavLink to="/" className='links'>Home</NavLink>
@@ -27,17 +38,21 @@ export class Menu extends Component {
           <div className='links'>
             <NavLink to="/all-products" className='links'>All Products</NavLink>
 
+            {thisUserLinks.map(link => (
+              <NavLink to={link.to} key={link.to} className='links'> {link.name} </NavLink>
+            ))}
+
             <NavLink to="/login" className='links' onClick={this.handleLogout}>Logout</NavLink>
           </div>
         </React.Fragment>);
     }
     return links;
-  }
+  };
 
   render() {
     return (
       <div className='sidebar-menu'>
-        {this.headerLinks(this.props.auth.isAuthenticated)}
+        {this.headerLinks(this.props.auth)}
       </div>
     )
   }
