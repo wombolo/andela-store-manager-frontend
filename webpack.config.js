@@ -2,6 +2,10 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
+  entry: ['babel-polyfill', './src/index.jsx', 'font-awesome/scss/font-awesome.scss'],
+  output: {
+    publicPath: '/',
+  },
   module: {
     rules: [
       {
@@ -23,7 +27,20 @@ module.exports = {
           'postcss-loader',
           'sass-loader',
         ]
-      }
+      },
+      {
+        test: /.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
+        use: 'url-loader?limit=100000',
+      },
+      {
+        test: /font-awesome\.config\.js/,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'font-awesome-loader' }
+        ]
+      },
+      { test: /\.json$/, loader: 'json-loader' },
+
     ]
   },
   devtool: 'inline-source-map',

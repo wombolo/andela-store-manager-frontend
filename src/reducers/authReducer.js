@@ -3,7 +3,7 @@ import {ACTION_TYPES} from '../actions/action-types';
 import isEmpty from '../utils/isEmpty';
 
 const {
-  SET_CURRENT_USER, SET_USER_REQUEST, SET_USER_ERROR
+  SET_CURRENT_USER, SET_USER_REQUEST, SET_USER_ERROR, GET_AUTH_USER
 } = ACTION_TYPES;
 
 

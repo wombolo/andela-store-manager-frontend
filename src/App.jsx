@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom'
 import Routes from './components/Routes.jsx'
 import Menu from './components/Menu.jsx'
+import TopBar from "./components/TopBar.jsx";
 
 export default class App extends Component {
   render() {
@@ -13,6 +14,7 @@ export default class App extends Component {
           </div>
 
           <div className='col-8'>
+            <TopBar/>
             <Routes/>
           </div>
         </div>

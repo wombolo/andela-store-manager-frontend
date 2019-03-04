@@ -38,3 +38,10 @@ export const loginUser = userData => async (dispatch) => {
     Notify.notifyError(err.response.data.messages);
   }
 };
+
+export const handleLogout = (error) => {
+  if (error.response.data.message==='jwt expired') {
+    localStorage.clear();
+    window.location.reload();
+  }
+};
