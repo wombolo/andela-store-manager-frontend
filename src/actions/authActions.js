@@ -23,18 +23,23 @@ export const setUserError = error => ({
 export const loginUser = userData => async (dispatch) => {
   dispatch(setUserRequest());
   try {
+    console.log('>>>');
+
     const res = await vyStoreBackend.post('/auth/login', userData);
 
     const { token } = res.data;
-    const decoded = jwt_decode(token);
-    localStorage.setItem('authToken', token);
-    if (decoded) {
-      window.location.replace('/dashboard');
+    if (token) {
+      const decoded = jwt_decode(token);
+      localStorage.setItem('authToken', token);
+      if (decoded) {
+        window.location.replace('/all-products');
+      }
+      dispatch(setCurrentUser(decoded));
     }
-    dispatch(setCurrentUser(decoded));
   } catch (err) {
-    dispatch(setUserError(err.response.data.message));
-    Notify.notifyError(err.response.data.messages);
+    dispatch(setUserError('Authentication failed. Check your password and try again'));
+    await Notify.notifyError('Authentication failed. Check your password and try again');
+    setTimeout(() => (window.location.replace('/login')), 1500)
   }
 };
 
