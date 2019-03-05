@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import {Link} from "react-router-dom";
 
 export class TopBar extends Component {
   render() {
@@ -18,7 +19,9 @@ export class TopBar extends Component {
         <div className='col-3'>
           <div className='row'>
             <div className='col-3'>
-              <h6>Cart <i className='cart-count'>{cartLength} </i></h6>
+              <Link to={'/cart'}>
+                <h6>Cart <i className='cart-count'>{cartLength} </i></h6>
+              </Link>
             </div>
 
             <div className='col-4'>

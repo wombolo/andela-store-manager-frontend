@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {getSingleProducts, editProduct, deleteProduct} from '../actions/productActions';
+import {getSingleProducts, editProduct, deleteProduct, addToCart} from '../actions/productActions';
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 
@@ -166,7 +166,7 @@ export class ViewModifyProduct extends Component {
                     <tr>
                       <td>&nbsp;</td>
                       <td>
-                        <button className="pull-right min-btn btn-primary" onClick={() => this.addToCart(this.state)}>Add to Cart</button>
+                        <button className="pull-right min-btn btn-primary" onClick={() => this.props.addToCart(this.state)}>Add to Cart</button>
                         </td>
                     </tr>
 
@@ -184,7 +184,9 @@ export class ViewModifyProduct extends Component {
 }
 
 ViewModifyProduct.propTypes = {
-  getSingleProducts: PropTypes.func.isRequired
+  getSingleProducts: PropTypes.func.isRequired,
+  editProduct: PropTypes.func.isRequired,
+  deleteProduct: PropTypes.func.isRequired
 };
 
 
@@ -194,5 +196,5 @@ export const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps, {
-  getSingleProducts, editProduct, deleteProduct,
+  getSingleProducts, editProduct, deleteProduct, addToCart,
 })(ViewModifyProduct);

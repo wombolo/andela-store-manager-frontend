@@ -1,5 +1,4 @@
 /* eslint-disable camelcase */
-import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 import {ACTION_TYPES} from './action-types';
 import vyStoreBackend from '../apis/vyStoreBackend'

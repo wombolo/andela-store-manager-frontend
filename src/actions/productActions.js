@@ -5,13 +5,18 @@ import Notify from '../utils/Notify';
 import vyStoreBackendAPI from '../apis/vyStoreBackend'
 
 const {
-  GET_ALL_PRODUCTS, ADD_TO_CART, CART_UPDATED, GET_SINGLE_PRODUCTS
+  GET_ALL_PRODUCTS, ADD_TO_CART, CART_UPDATED, GET_SINGLE_PRODUCTS,
+  GET_ALL_IN_CART, CHECK_OUT_PROCESSED
 } = ACTION_TYPES;
 
 
 export const setAllProducts = payload => ({
   type: GET_ALL_PRODUCTS,
   payload,
+});
+
+export const getAllCartItems = () => ({
+  type: GET_ALL_IN_CART,
 });
 
 export const getAllProducts = () => async (dispatch) =>{
@@ -51,9 +56,7 @@ export const addNewProduct = (payload) => async (dispatch) =>{
 
 export const editProduct = (payload) => async (dispatch) =>{
   try{
-    // if (payload.image_file){
-      //UPLOAD TO CLOUDINARY
-    // }
+    // if (payload.image_file){ //UPLOAD TO CLOUDINARY// }
 
     const product = {
       title: payload.title,
@@ -100,6 +103,28 @@ export const addToCartAction = (payload) =>({
 export const addToCart = (payload) => dispatch =>{
   dispatch(addToCartAction(payload));
   dispatch(cartUpdated());
+};
+
+
+export const checkOutProcessed = () =>({
+  type: CHECK_OUT_PROCESSED,
+});
+
+
+export const handleCheckout = payload => async  (dispatch) => {
+  payload.forEach(async ( item )=> {
+    const {
+      title, cartQty: quantity, id: product_id, price, description
+    } = item;
+
+    const newSale = await vyStoreBackendAPI.post('/sales', {
+      title, quantity, product_id, price, description
+    });
+  });
+
+  Notify.notifySuccess('Products Checkout Successful');
+  // localStorage.setItem('userCart',[]);
+  dispatch(checkOutProcessed);
 };
 
 
