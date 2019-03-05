@@ -23,13 +23,14 @@ export class Menu extends Component {
 
       const {profile} = user;
       const AdminLinks = [
-        { to: '/add-product', name: 'Add New Product'}
-      ];
-      const AttendantLinks =[
-        { to: '/my-sales', name: 'My Sales'}
+        { to: '/add-product', name: 'Add New Product'},
       ];
 
-      const thisUserLinks = profile.role === 'admin' ? AdminLinks :AttendantLinks ;
+      const AttendantLinks =[
+        // { to: '/all-sales', name: 'My Sales'}
+      ];
+
+      const thisUserLinks = profile.role === 'admin' ? AdminLinks : AttendantLinks ;
 
       links = (
         <React.Fragment>
@@ -41,6 +42,8 @@ export class Menu extends Component {
             {thisUserLinks.map(link => (
               <NavLink to={link.to} key={link.to} className='links'> {link.name} </NavLink>
             ))}
+
+            <NavLink to={'/all-sales'} className='links'> All Sales </NavLink>
 
             <NavLink to="/login" className='links' onClick={this.handleLogout}>Logout</NavLink>
           </div>
