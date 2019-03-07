@@ -12,6 +12,8 @@ import AddProduct from "./AddProduct.jsx";
 import ViewModifyProduct from "./ViewModifyProduct.jsx";
 import Cart from "./Cart.jsx";
 import AllSales from "./AllSales.jsx";
+import ViewModifyProfile from "./ViewModifyProfile.jsx";
+import AddProfile from "./AddProfile.jsx";
 
 const Routes = () => (
   <Switch>
@@ -20,9 +22,11 @@ const Routes = () => (
     <PrivateRoute path="/dashboard" component={Dashboard} />
     <PrivateRoute path="/all-products" component={AllProducts} />
     <PrivateRoute path="/add-product" component={AddProduct} />
+    <PrivateRoute path="/add-profile" component={AddProfile} />
     <PrivateRoute exact path="/edit-product/:id" component={ViewModifyProduct} />
     <PrivateRoute exact path="/cart" component={Cart} />
     <PrivateRoute exact path="/all-sales" component={AllSales} />
+    <PrivateRoute exact path="/profile/:id" component={ViewModifyProfile} />
 
     <Route component={NotFound} />
   </Switch>

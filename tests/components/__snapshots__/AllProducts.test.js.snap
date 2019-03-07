@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AllProducts Component should match snapshot 1`] = `
+<div>
+  <h1>
+    All Products
+  </h1>
+  <div
+    className="row big-row products-row"
+  >
+    <div
+      key="5"
+    >
+      <figure
+        className="image-holder"
+      >
+        <Link
+          replace={false}
+          to="/edit-product/5"
+        >
+          <img
+            src="../assets/images/products/product-5.png"
+          />
+        </Link>
+      </figure>
+      <div
+        className="row"
+      >
+        <div
+          className="col-3"
+        >
+          <span
+            className="pull-left item-price"
+          >
+             $ 
+            150.00
+          </span>
+        </div>
+        <div
+          className="col-6"
+        >
+          <button
+            className="pull-right min-btn btn-primary"
+            onClick={[Function]}
+          >
+            Add to Cart
+          </button>
+        </div>
+      </div>
+      <h3>
+        <Link
+          replace={false}
+          to="/edit-product/5"
+        >
+          Bonjour
+        </Link>
+      </h3>
+    </div>
+    <div
+      key="2"
+    >
+      <figure
+        className="image-holder"
+      >
+        <Link
+          replace={false}
+          to="/edit-product/2"
+        >
+          <img
+            src="../assets/images/products/product-5.png"
+          />
+        </Link>
+      </figure>
+      <div
+        className="row"
+      >
+        <div
+          className="col-3"
+        >
+          <span
+            className="pull-left item-price"
+          >
+             $ 
+            150.00
+          </span>
+        </div>
+        <div
+          className="col-6"
+        >
+          <button
+            className="pull-right min-btn btn-primary"
+            onClick={[Function]}
+          >
+            Add to Cart
+          </button>
+        </div>
+      </div>
+      <h3>
+        <Link
+          replace={false}
+          to="/edit-product/2"
+        >
+          Bonjour
+        </Link>
+      </h3>
+    </div>
+  </div>
+  <div
+    className="row m-t-5 text-center"
+  >
+    <h3
+      className="text-gold"
+    >
+      You may Scroll Right or Left
+    </h3>
+  </div>
+</div>
+`;

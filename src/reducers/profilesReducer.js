@@ -1,12 +1,12 @@
 import {ACTION_TYPES} from '../actions/action-types';
 
 const {
-  GET_ALL_SALES, GET_SINGLE_SALE
+  GET_SINGLE_PROFILE,
 } = ACTION_TYPES;
 
+
 const initialState = {
-  sales:[],
-  singleSales:'',
+  profile:'',
   isLoading: true,
 };
 
@@ -15,15 +15,16 @@ const initialState = {
  * @param {object} action
  *  @returns {object} state, user
  */
-export default function (state = initialState, action) {
+export default (state = initialState, action) => {
   switch (action.type) {
 
-    case GET_ALL_SALES:
+    case GET_SINGLE_PROFILE:
       return {
         ...state,
-        sales: action.payload,
+        profile: action.payload,
         isLoading: false,
       };
+
     default:
       return state;
   }

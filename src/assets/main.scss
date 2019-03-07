@@ -163,18 +163,20 @@ tfoot td{background: $primary-blue;color: #ffffff;padding: 2em; }
 figure{margin: 10px 0;}
 .sidebar-menu {
     background: linear-gradient(45deg, $secondary-blue, $primary-blue);
-    height: 100vh;
+    height: 100%;
 
-    .links {
+    ul {
         display: block;
+        list-style-type: none;
         padding: 3em;
-        color: #ffffff;
-        height: ceil(100vh / 6);
 
-        .links {
-            height: auto;
+        a {
+            color: #ffffff;
         }
 
+        li{
+            padding: 10px 0;
+        }
         .active {
             border-bottom: 2px solid white;
         }
@@ -193,8 +195,12 @@ figure{margin: 10px 0;}
     border-radius: 50%;
 }
 .cart-count{
-    background: $sweet-red;
-    border-radius: 20%;
+    background: rgba(250,38,50,0.43137);
+    border-radius: 10%;
     color: #fff;
-    padding: .4em;
+    padding: 0.2em;
+}
+
+.min-height-100vh{
+    min-height: 100vh;
 }

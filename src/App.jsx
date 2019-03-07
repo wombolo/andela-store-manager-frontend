@@ -13,7 +13,7 @@ export default class App extends Component {
             <Menu/>
           </div>
 
-          <div className='col-8'>
+          <div className='col-8 min-height-100vh'>
             <TopBar/>
             <Routes/>
           </div>

@@ -1,0 +1,207 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AllSales Component should match snapshot 1`] = `
+<div>
+  <h1>
+    My Sales
+  </h1>
+  <div
+    className="row clearfix"
+  >
+    <div
+      className="col-10 m-0-auto m-t-5"
+    >
+      <table
+        border="1"
+        cellPadding="5"
+        className="dataTable table-striped"
+      >
+        <thead>
+          <tr>
+            <td>
+              S/N
+            </td>
+            <td>
+              Transaction ID
+            </td>
+            <td>
+              Item Name
+            </td>
+            <td>
+              Item Price
+            </td>
+            <td>
+              Item Quantity
+            </td>
+            <td>
+              Amount
+            </td>
+            <td>
+              Item Page
+            </td>
+            <td>
+               Attendant Profile 
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            key="1"
+          >
+            <td>
+              1
+            </td>
+            <td>
+              <code>
+                3WIHHM
+              </code>
+            </td>
+            <td>
+              Things fall apart
+            </td>
+            <td>
+              $ 
+              42.00
+            </td>
+            <td>
+              3
+            </td>
+            <td>
+              $ 
+              126
+            </td>
+            <td>
+              <Link
+                className="btn btn-primary"
+                replace={false}
+                to="edit-product/2"
+              >
+                View
+              </Link>
+            </td>
+            <td>
+              <Link
+                className="btn btn-dark"
+                replace={false}
+                to="profile/1"
+              >
+                View
+              </Link>
+            </td>
+          </tr>
+          <tr
+            key="2"
+          >
+            <td>
+              2
+            </td>
+            <td>
+              <code>
+                XVIGYD
+              </code>
+            </td>
+            <td>
+              Things fall apart
+            </td>
+            <td>
+              $ 
+              42.00
+            </td>
+            <td>
+              3
+            </td>
+            <td>
+              $ 
+              126
+            </td>
+            <td>
+              <Link
+                className="btn btn-primary"
+                replace={false}
+                to="edit-product/2"
+              >
+                View
+              </Link>
+            </td>
+            <td>
+              <Link
+                className="btn btn-dark"
+                replace={false}
+                to="profile/1"
+              >
+                View
+              </Link>
+            </td>
+          </tr>
+          <tr
+            key="3"
+          >
+            <td>
+              3
+            </td>
+            <td>
+              <code>
+                4I39H
+              </code>
+            </td>
+            <td>
+              Things fall apart
+            </td>
+            <td>
+              $ 
+              42.00
+            </td>
+            <td>
+              3
+            </td>
+            <td>
+              $ 
+              126
+            </td>
+            <td>
+              <Link
+                className="btn btn-primary"
+                replace={false}
+                to="edit-product/2"
+              >
+                View
+              </Link>
+            </td>
+            <td>
+              <Link
+                className="btn btn-dark"
+                replace={false}
+                to="profile/1"
+              >
+                View
+              </Link>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td
+              colSpan="4"
+            >
+              Grand Total
+            </td>
+            <td>
+              9
+            </td>
+            <td>
+              $ 
+              378
+            </td>
+            <td>
+               
+            </td>
+            <td>
+               
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</div>
+`;

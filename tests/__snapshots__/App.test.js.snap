@@ -13,6 +13,7 @@ exports[`App Component renders without crashing 1`] = `
     <div
       className="col-8"
     >
+      <Connect(TopBar) />
       <Routes />
     </div>
   </div>

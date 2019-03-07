@@ -21,6 +21,6 @@ export const getAllSales = () => async (dispatch) =>{
   }
   catch(e){
     handleLogout(e);
-    console.log(e.response);
+    // console.log(e.response);
   }
 };

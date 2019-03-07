@@ -82,14 +82,14 @@ export class Cart extends Component {
                                max={item.cartQty + item.quantity}
                                onChange={this.handleQuantityChange} /></td>
                     <td>$ {thisAmountTotal}</td>
-                    <td><button type='reset' className='text-danger' onClick={()=> (this.handleRemoveFromCart(item.id))}>Remove</button></td>
+                    <td><button type='reset' id={`remove-${item.id}`} className='text-danger' onClick={()=> (this.handleRemoveFromCart(item.id))}>Remove</button></td>
                   </tr>
                   )
                 })
                   : <tr><td colSpan="8" className='center'>No Items in Cart</td></tr>}
                 </tbody>
-                <tfoot>
 
+                <tfoot>
                 <tr>
                   <td colSpan="5">Grand Total</td>
                   <td>{grandTotalItems}</td>
@@ -118,6 +118,8 @@ export class Cart extends Component {
 
 Cart.propTypes = {
   getAllCartItems: PropTypes.func.isRequired,
+  cart: PropTypes.array.isRequired,
+  profile: PropTypes.shape({}).isRequired,
 };
 
 export const mapStateToProps = state => ({
