@@ -152,7 +152,7 @@ describe('PRODUCT actions', () => {
       type: ACTION_TYPES.PRODUCT_DELETED,
     }];
 
-    store.dispatch(deleteProduct(2))
+    store.dispatch(deleteProduct('2'))
       .then(() => {
         expect(store.getActions()).toEqual(expectedActions);
         done();

@@ -20,18 +20,20 @@ export class AllProducts extends Component {
       return(<p>Now Loading. Please be patient</p>)
     }
 
+
     return (
       <div>
         <h1>All Products</h1>
 
         <div className="row big-row products-row">
           {products.map(product => {
+            const imageFile = require(`../assets/images/${product.image}`);
 
               return (
                 <div key={product.id}>
                   <figure className="image-holder">
                     <Link to={`/edit-product/${product.id}`}>
-                      <img src={require(`../assets/images/${product.image}`)} />
+                      <img src={imageFile} />
                     </Link>
                   </figure>
                   <div className="row">
