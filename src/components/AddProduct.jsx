@@ -18,13 +18,7 @@ export class AddProduct extends Component {
   };
 
   handleChange = (event) => {
-    if (event.target.id === 'image_file') {
-      const img = document.getElementById('image_file').files[0];
-      this.setState({image_file: img});
-    }
-    else {
-      this.setState({[event.target.id]: event.target.value});
-    }
+    this.setState({[event.target.id]: event.target.value});
   };
 
   render() {
@@ -42,7 +36,14 @@ export class AddProduct extends Component {
                 <div className="col-3">
                   <figure className="image-holder">
                     <img alt={'image'} src="../assets/images/products/product-1.png" />
-                    <input type={'file'} id={'image_file'} onChange={this.handleChange}/>
+                    <input type={'file'} id={'image_file'}
+                           onChange={ (e) => this.handleChange({
+                             target:{
+                               id:'image_file',
+                               value: e.target.files[0],
+                             }
+                           })
+                           }/>
                   </figure>
                 </div>
 

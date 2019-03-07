@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu Component should match snapshot 1`] = `
+<div
+  className="sidebar-menu"
+>
+  <ul>
+    <li>
+      <NavLink
+        activeClassName="active"
+        aria-current="page"
+        className="links"
+        to="/"
+      >
+        Home
+      </NavLink>
+    </li>
+    <li>
+      <NavLink
+        activeClassName="active"
+        aria-current="page"
+        className="links"
+        to="/dashboard"
+      >
+        Dashboard
+      </NavLink>
+    </li>
+  </ul>
+  <ul
+    className="links"
+  >
+    <li>
+      <NavLink
+        activeClassName="active"
+        aria-current="page"
+        className="links"
+        to="/all-products"
+      >
+        All Products
+      </NavLink>
+    </li>
+    <li
+      key="/add-product"
+    >
+      <NavLink
+        activeClassName="active"
+        aria-current="page"
+        className="links"
+        to="/add-product"
+      >
+         
+        Add New Product
+         
+      </NavLink>
+    </li>
+    <li
+      key="/add-profile"
+    >
+      <NavLink
+        activeClassName="active"
+        aria-current="page"
+        className="links"
+        to="/add-profile"
+      >
+         
+        Add New User
+         
+      </NavLink>
+    </li>
+    <li>
+      <NavLink
+        activeClassName="active"
+        aria-current="page"
+        className="links"
+        to="/all-sales"
+      >
+         All Sales 
+      </NavLink>
+    </li>
+    <li>
+      <NavLink
+        activeClassName="active"
+        aria-current="page"
+        className="links"
+        onClick={[Function]}
+        to="/login"
+      >
+        Logout
+      </NavLink>
+    </li>
+  </ul>
+</div>
+`;

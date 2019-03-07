@@ -9,8 +9,7 @@ export class AllProducts extends Component {
     this.props.getAllProducts();
   }
 
-  addToCart = (product) =>{
-    // console.log('>>>', product);
+  addToCartEvt = (product) =>{
     this.props.addToCart(product);
   };
 
@@ -22,8 +21,7 @@ export class AllProducts extends Component {
         <h1>All Products</h1>
 
         <div className="row big-row products-row">
-          {
-            products.map(product => {
+          {products.map(product => {
 
               return (
                 <div key={product.id}>
@@ -36,7 +34,7 @@ export class AllProducts extends Component {
                     <div className="col-3"><span className="pull-left item-price"> $ {product.price}</span></div>
                     <div className="col-6">
 
-                      <button className="pull-right min-btn btn-primary" onClick={() => this.addToCart(product)}>Add to Cart</button>
+                      <button className="pull-right min-btn btn-primary" onClick={() => this.addToCartEvt(product)}>Add to Cart</button>
                     </div>
                   </div>
                   <h3>
@@ -47,16 +45,20 @@ export class AllProducts extends Component {
               )
             })
           }
-
         </div>
-      </div>
+
+        <div className="row m-t-5 text-center">
+          <h3 className='text-gold'>You may Scroll Right or Left</h3>
+        </div>
+        </div>
     )
   }
 }
 
 AllProducts.propTypes = {
   products: PropTypes.shape({}).isRequired,
-  getAllProducts: PropTypes.func.isRequired
+  getAllProducts: PropTypes.func.isRequired,
+  addToCart: PropTypes.func.isRequired
 };
 
 export const mapStateToProps = state => ({

@@ -6,9 +6,9 @@ import vyStoreBackendAPI from '../apis/vyStoreBackend'
 
 const {
   GET_ALL_PRODUCTS, ADD_TO_CART, CART_UPDATED, GET_SINGLE_PRODUCTS,
-  GET_ALL_IN_CART, CHECK_OUT_PROCESSED
+  GET_ALL_IN_CART, CHECK_OUT_PROCESSED, CREATE_NEW_PRODUCT,
+  PRODUCT_DELETED, EDIT_PRODUCT
 } = ACTION_TYPES;
-
 
 export const setAllProducts = payload => ({
   type: GET_ALL_PRODUCTS,
@@ -26,27 +26,24 @@ export const getAllProducts = () => async (dispatch) =>{
   }
   catch(e){
     handleLogout(e);
-    console.log(e.response);
+    // console.log(e.response);
   }
 };
 
 
+export const createProduct = () => ({
+  type: CREATE_NEW_PRODUCT,
+});
+
 export const addNewProduct = (payload) => async (dispatch) =>{
   try{
-    //Add cloudinary Support
-    const newProduct = {
-      title: payload.title,
-      // image: payload.image.name || `product-${Math.floor(Math.random() *7) + 1}` ,
-      image: `products/product-${Math.floor(Math.random() *9) + 1}.png` ,
-      description: payload.description,
-      price: payload.price,
-      quantity: payload.quantity,
-    };
+    dispatch(createProduct());
+    payload.image = `products/product-${Math.floor(Math.random() *9) + 1}.png`;
 
     const products = await vyStoreBackendAPI.post('/products',
-      newProduct);
+      payload);
     await Notify.notifySuccess('Product added successfully');
-    window.location.replace('/all-products')
+    window.location.replace('/all-products');
   }
   catch(e){
     handleLogout(e);
@@ -54,9 +51,16 @@ export const addNewProduct = (payload) => async (dispatch) =>{
   }
 };
 
+
+export const productEdited = () =>({
+  type: EDIT_PRODUCT,
+});
+
 export const editProduct = (payload) => async (dispatch) =>{
   try{
     // if (payload.image_file){ //UPLOAD TO CLOUDINARY// }
+
+    dispatch(productEdited());
 
     const product = {
       title: payload.title,
@@ -78,33 +82,38 @@ export const editProduct = (payload) => async (dispatch) =>{
 };
 
 
+export const productDeleted = () =>({
+  type: PRODUCT_DELETED,
+});
+
 export const deleteProduct = (id) => async (dispatch) =>{
   try{
+    dispatch(productDeleted());
     const productDeleteAPI = await vyStoreBackendAPI.delete(`/products/${id}`);
     await Notify.notifySuccess('Product deleted successfully');
     window.location.replace('/all-products');
   }
   catch(e){
     handleLogout(e);
+    // console.log(e);
     await Notify.notifyError('Error Occurred while deleting. Please try again')
   }
 };
 
-export const cartUpdated = () =>({
-  type: CART_UPDATED,
-});
 
 export const addToCartAction = (payload) =>({
   type: ADD_TO_CART,
   payload,
 });
 
+export const cartUpdated = () =>({
+  type: CART_UPDATED,
+});
 
 export const addToCart = (payload) => dispatch =>{
   dispatch(addToCartAction(payload));
   dispatch(cartUpdated());
 };
-
 
 export const checkOutProcessed = () =>({
   type: CHECK_OUT_PROCESSED,
@@ -112,7 +121,7 @@ export const checkOutProcessed = () =>({
 
 
 export const handleCheckout = payload => async  (dispatch) => {
-  payload.forEach(async ( item )=> {
+  payload.forEach( async (item)=> {
     const {
       title, cartQty: quantity, id: product_id, price, description
     } = item;
@@ -123,7 +132,7 @@ export const handleCheckout = payload => async  (dispatch) => {
   });
 
   Notify.notifySuccess('Products Checkout Successful');
-  // localStorage.setItem('userCart',[]);
+  localStorage.setItem('userCart',[]);
   dispatch(checkOutProcessed);
 };
 
@@ -136,10 +145,11 @@ export const setSingleProduct = payload => ({
 
 export const getSingleProducts = (id) => async (dispatch) =>{
   try{
-    const products = await vyStoreBackendAPI.get(`/products/${id}`);
     dispatch(setSingleProduct(products.data.product));
+    const products = await vyStoreBackendAPI.get(`/products/${id}`);
   }
   catch(e){
-    console.log(e.response);
+    // console.log(e.response);
+    Notify.notifyError('Could not fetch product. Try again later');
   }
 };

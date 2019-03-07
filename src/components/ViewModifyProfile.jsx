@@ -107,7 +107,6 @@ export class ViewModifyProfile extends Component {
                         <td><input id="conf_password" type="password" onChange={this.handleChange}/></td>
                       </tr>
                     </React.Fragment>
-
                     : null
                   }
                   <tr>

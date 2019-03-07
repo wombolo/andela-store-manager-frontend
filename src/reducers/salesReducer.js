@@ -4,13 +4,6 @@ const {
   GET_ALL_SALES, GET_SINGLE_SALE
 } = ACTION_TYPES;
 
-let newCart = [];
-
-if (localStorage.getItem('userCart')){
-  const cart = JSON.parse(localStorage.getItem('userCart'));
-  newCart = [...cart];
-}
-
 const initialState = {
   sales:[],
   singleSales:'',
@@ -31,14 +24,6 @@ export default function (state = initialState, action) {
         sales: action.payload,
         isLoading: false,
       };
-    //
-    // case GET_SINGLE_PRODUCTS:
-    //   return {
-    //     ...state,
-    //     singleProduct: action.payload,
-    //     isLoading: false,
-    //   };
-    //
     default:
       return state;
   }

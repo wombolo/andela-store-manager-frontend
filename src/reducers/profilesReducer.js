@@ -1,7 +1,7 @@
 import {ACTION_TYPES} from '../actions/action-types';
 
 const {
-  GET_ALL_PROFILES, GET_SINGLE_PROFILE,
+  GET_SINGLE_PROFILE,
 } = ACTION_TYPES;
 
 

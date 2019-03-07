@@ -14,7 +14,7 @@ export class TopBar extends Component {
     return (
       <div className='row'>
         <div className='col-7'>
-          <h4>{profile.role.toUpperCase()}</h4>
+          <h4>User Account - <span className='text-primary'>{profile.role.toUpperCase()}</span></h4>
         </div>
         <div className='col-3'>
 

@@ -5,36 +5,41 @@ import Notify from '../utils/Notify';
 import vyStoreBackendAPI from '../apis/vyStoreBackend'
 
 const {
-  GET_SINGLE_PROFILE,
+  GET_SINGLE_PROFILE, ADD_PROFILE, EDIT_PROFILE
 } = ACTION_TYPES;
 
+export const setNewProfile = () =>({
+  type: ADD_PROFILE
+});
 
 export const addNewProfile = (payload) => async (dispatch) =>{
   try{
-    //Add cloudinary Support
-    const newProduct = {
-      title: payload.title,
-      // image: payload.image.name || `product-${Math.floor(Math.random() *7) + 1}` ,
-      image: `products/product-${Math.floor(Math.random() *9) + 1}.png` ,
-      description: payload.description,
-      price: payload.price,
-      quantity: payload.quantity,
-    };
+    dispatch(setNewProfile());
 
-    const products = await vyStoreBackendAPI.post('/products',
-      newProduct);
-    await Notify.notifySuccess('Product added successfully');
-    window.location.replace('/all-products')
+    payload.image = 'team-7.jpg';
+
+    const profile = await vyStoreBackendAPI.post('/profiles',
+      payload);
+
+    await Notify.notifySuccess('User added successfully');
+    window.location.replace(`/profile/${profile.data.newProfile.id}`)
   }
   catch(e){
     handleLogout(e);
+    // console.log(e);
     await Notify.notifyError('Error Occurred while adding. Please try again')
   }
 };
 
+
+export const profileEdited = () =>({
+  type: EDIT_PROFILE
+});
+
 export const editProfile = (payload) => async (dispatch) =>{
   try{
-    console.log('-->',payload);
+    dispatch(profileEdited());
+
     const productUpdateAPI = await vyStoreBackendAPI.put(`/profiles/${payload.id}`,
       payload);
 
@@ -53,13 +58,13 @@ export const setSingleProfile = payload => ({
   payload,
 });
 
-
 export const getSingleProfile = (id) => async (dispatch) =>{
   try{
     const profile = await vyStoreBackendAPI.get(`/profiles/${id}`);
     dispatch(setSingleProfile(profile.data.profile));
   }
   catch(e){
-    console.log(e.response);
+    // console.log(e.response);
+    Notify.notifyError('Profile does not exists');
   }
 };

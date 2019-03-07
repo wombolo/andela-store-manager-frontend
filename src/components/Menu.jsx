@@ -15,38 +15,41 @@ export class Menu extends Component {
     if (!isAuthenticated) {
       links = (
         <React.Fragment>
-          <NavLink to="/" className='links'>Home</NavLink>
-          <NavLink to="/login" className='links'>Login</NavLink>
-          <i className='links'> </i>
+          <ul>
+            <li><NavLink to="/" className='links'>Home</NavLink></li>
+            <li><NavLink to="/login" className='links'>Login</NavLink></li>
+          </ul>
         </React.Fragment>);
     } else {
 
       const {profile} = user;
       const AdminLinks = [
         { to: '/add-product', name: 'Add New Product'},
+        { to: '/add-profile', name: 'Add New User'},
       ];
 
       const AttendantLinks =[
         // { to: '/all-sales', name: 'My Sales'}
       ];
 
-      const thisUserLinks = profile.role === 'admin' ? AdminLinks : AttendantLinks ;
+      const thisUserLinks = profile.role === 'admin' ? AdminLinks : AttendantLinks;
 
       links = (
         <React.Fragment>
-          <NavLink to="/" className='links'>Home</NavLink>
-          <NavLink to="/dashboard" className='links'>Dashboard</NavLink>
-          <div className='links'>
-            <NavLink to="/all-products" className='links'>All Products</NavLink>
+          <ul>
+            <li><NavLink to="/" className='links'>Home</NavLink></li>
+            <li><NavLink to="/dashboard" className='links'>Dashboard</NavLink></li>
+          </ul>
 
+          <ul className='links'>
+            <li><NavLink to="/all-products" className='links'>All Products</NavLink></li>
             {thisUserLinks.map(link => (
-              <NavLink to={link.to} key={link.to} className='links'> {link.name} </NavLink>
+              <li key={link.to}><NavLink to={link.to} className='links'> {link.name} </NavLink></li>
             ))}
 
-            <NavLink to={'/all-sales'} className='links'> All Sales </NavLink>
-
-            <NavLink to="/login" className='links' onClick={this.handleLogout}>Logout</NavLink>
-          </div>
+            <li><NavLink to={'/all-sales'} className='links'> All Sales </NavLink></li>
+            <li><NavLink to="/login" className='links' onClick={this.handleLogout}>Logout</NavLink></li>
+          </ul>
         </React.Fragment>);
     }
     return links;

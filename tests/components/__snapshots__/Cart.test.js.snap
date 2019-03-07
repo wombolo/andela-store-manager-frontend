@@ -1,0 +1,189 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cart Component should match snapshot 1`] = `
+<div>
+  <h1>
+    Checkout
+  </h1>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      className="row clearfix"
+    >
+      <div
+        className="col-10 m-0-auto m-t-5"
+      >
+        <h3>
+          Cart 
+        </h3>
+        <table
+          border="1"
+          cellPadding="5"
+          className="dataTable table-striped"
+        >
+          <thead>
+            <tr>
+              <td>
+                S/N
+              </td>
+              <td>
+                Transaction ID
+              </td>
+              <td>
+                Item Image
+              </td>
+              <td>
+                Item Name
+              </td>
+              <td>
+                Item Price
+              </td>
+              <td>
+                Item Quantity
+              </td>
+              <td>
+                Amount
+              </td>
+              <td>
+                Action
+              </td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              key="1"
+            >
+              <td>
+                1
+              </td>
+              <td>
+                <code>
+                  4L8IVK
+                </code>
+              </td>
+              <td>
+                <img
+                  src="../assets/images/products/product-5.png"
+                />
+              </td>
+              <td>
+                Bonjour
+              </td>
+              <td>
+                $ 
+                150
+              </td>
+              <td>
+                <input
+                  data-itemid={1}
+                  defaultValue="3"
+                  max="33"
+                  onChange={[Function]}
+                  type="number"
+                />
+              </td>
+              <td>
+                $ 
+                450
+              </td>
+              <td>
+                <button
+                  className="text-danger"
+                  id="remove-1"
+                  onClick={[Function]}
+                  type="reset"
+                >
+                  Remove
+                </button>
+              </td>
+            </tr>
+            <tr
+              key="2"
+            >
+              <td>
+                2
+              </td>
+              <td>
+                <code>
+                  KCT81
+                </code>
+              </td>
+              <td>
+                <img
+                  src="../assets/images/products/product-5.png"
+                />
+              </td>
+              <td>
+                Bonjour
+              </td>
+              <td>
+                $ 
+                150
+              </td>
+              <td>
+                <input
+                  data-itemid={2}
+                  defaultValue="3"
+                  max="33"
+                  onChange={[Function]}
+                  type="number"
+                />
+              </td>
+              <td>
+                $ 
+                450
+              </td>
+              <td>
+                <button
+                  className="text-danger"
+                  id="remove-2"
+                  onClick={[Function]}
+                  type="reset"
+                >
+                  Remove
+                </button>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td
+                colSpan="5"
+              >
+                Grand Total
+              </td>
+              <td>
+                6
+              </td>
+              <td>
+                $ 
+                900
+              </td>
+              <td>
+                 
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+    <div
+      className="row clearfix"
+    >
+      <div
+        className="col-8"
+      />
+      <div
+        className="col-2 pull-right"
+      >
+        <button
+          className="btn btn-success"
+        >
+          Checkout
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+`;

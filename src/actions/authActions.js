@@ -23,8 +23,6 @@ export const setUserError = error => ({
 export const loginUser = userData => async (dispatch) => {
   dispatch(setUserRequest());
   try {
-    console.log('>>>');
-
     const res = await vyStoreBackend.post('/auth/login', userData);
 
     const { token } = res.data;
@@ -47,5 +45,6 @@ export const handleLogout = (error) => {
   if (error.response.data.message==='jwt expired') {
     localStorage.clear();
     window.location.reload();
+    return 'Logged out';
   }
 };
