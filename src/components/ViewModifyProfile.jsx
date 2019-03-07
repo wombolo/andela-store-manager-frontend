@@ -7,7 +7,10 @@ import {connect} from "react-redux";
 import Notify from "../utils/Notify";
 
 export class ViewModifyProfile extends Component {
-  state= {};
+  state= {
+    id: 1, firstname: '', lastname: '',
+    email: '', role: 'admin', image: 'team-7.jpg',
+  };
 
   componentDidMount() {
     const { id } = this.props.match.params;
@@ -32,18 +35,14 @@ export class ViewModifyProfile extends Component {
   };
 
   handleChange = (event) => {
-    if (event.target.id === 'image_file') {
-      const img = document.getElementById('image_file').files[0];
-      this.setState({image_file: img});
-    }
-    else {
-      this.setState({[event.target.id]: event.target.value});
-    }
+    this.setState({[event.target.id]: event.target.value});
   };
 
 
   render() {
     const { profile, authProfile } = this.props;
+
+    const imageFile = require(`../assets/images/${this.state.image}`);
 
     return (
       <div className="row clearfix products-grid">
@@ -56,8 +55,15 @@ export class ViewModifyProfile extends Component {
 
               <div className="col-3">
                 <figure className="image-holder">
-                  <img alt={'image'} src={require(`../assets/images/profile/${this.state.image}`)} />
-                  <input type={'file'} id={'image_file'} onChange={this.handleChange}/>
+                  <img alt={'image'} src={imageFile} />
+                  <input type={'file'} id={'image_file'}
+                         onChange={ (e) => this.handleChange({
+                           target:{
+                             id:'image_file',
+                             value: e.target.files[0],
+                           }
+                         })
+                         }/>
                 </figure>
               </div>
 

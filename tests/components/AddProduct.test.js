@@ -30,9 +30,6 @@ describe('AddProduct Component', () => {
     });
 
     it('triggers handleSubmit()', () => {
-      // const image_file = wrapper.find('form').last();
-      // image_file.simulate('submit', {preventDefault: () => {}});
-
       sinon.spy(wrapper.instance(), 'handleSubmit');
       wrapper.instance().handleSubmit({preventDefault: () => {}});
       expect(wrapper.instance().handleSubmit.calledOnce)

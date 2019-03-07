@@ -4,7 +4,15 @@ import PropTypes from "prop-types";
 import {connect} from "react-redux";
 
 export class ViewModifyProduct extends Component {
-  state= {};
+  state= {
+    id: 2,
+    title: '',
+    image: 'products/product-5.png',
+    price: 0,
+    quantity: 0,
+    ViewModifyProductQty: '0',
+    status: 'active'
+  };
 
   componentDidMount() {
     const { id } = this.props.match.params;
@@ -23,13 +31,7 @@ export class ViewModifyProduct extends Component {
   };
 
   handleChange = (event) => {
-    if (event.target.id === 'image_file') {
-      const img = document.getElementById('image_file').files[0];
-      this.setState({image_file: img});
-    }
-    else {
-      this.setState({[event.target.id]: event.target.value});
-    }
+    this.setState({[event.target.id]: event.target.value});
   };
 
   componentWillReceiveProps(nextProps) {
@@ -41,6 +43,8 @@ export class ViewModifyProduct extends Component {
 
   render() {
     const { profile } = this.props;
+    const imageFile = require(`../assets/images/${this.state.image}`);
+
     if (profile.role === 'admin'){
       return (
          <div className="row clearfix products-grid">
@@ -52,8 +56,16 @@ export class ViewModifyProduct extends Component {
 
                   <div className="col-3">
                     <figure className="image-holder">
-                      <img alt={'image'} src={require(`../assets/images/${this.state.image}`)} />
-                      <input type={'file'} id={'image_file'} onChange={this.handleChange}/>
+                      <img alt={'image'} src={imageFile} />
+                      <input type={'file'} id={'image_file'}
+                             onChange={ (e) => this.handleChange({
+                               target:{
+                                 id:'image_file',
+                                 value: e.target.files[0],
+                               }
+                             })
+                             }/>
+
                     </figure>
                   </div>
 
@@ -166,7 +178,7 @@ export class ViewModifyProduct extends Component {
                     <tr>
                       <td>&nbsp;</td>
                       <td>
-                        <button className="pull-right min-btn btn-primary" onClick={() => this.props.addToCart(this.state)}>Add to Cart</button>
+                        <button className="pull-right min-btn btn-primary" id='add_to_cart_btn' onClick={() => this.props.addToCart(this.state)}>Add to Cart</button>
                         </td>
                     </tr>
 
@@ -186,7 +198,8 @@ export class ViewModifyProduct extends Component {
 ViewModifyProduct.propTypes = {
   getSingleProducts: PropTypes.func.isRequired,
   editProduct: PropTypes.func.isRequired,
-  deleteProduct: PropTypes.func.isRequired
+  deleteProduct: PropTypes.func.isRequired,
+  addToCart: PropTypes.func.isRequired,
 };
 
 

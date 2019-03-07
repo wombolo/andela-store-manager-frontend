@@ -154,11 +154,11 @@ export const setSingleProduct = payload => ({
 
 export const getSingleProducts = (id) => async (dispatch) =>{
   try{
-    dispatch(setSingleProduct(products.data.product));
     const products = await vyStoreBackendAPI.get(`/products/${id}`);
+    dispatch(setSingleProduct(products.data.product));
   }
   catch(e){
-    // console.log(e.response);
+    // console.log(e);
     Notify.notifyError('Could not fetch product. Try again later');
   }
 };

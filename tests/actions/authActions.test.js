@@ -35,6 +35,7 @@ describe('AUTH actions', () => {
 
   beforeEach(() => {
     moxios.install();
+    jest.setTimeout(10000);
   });
 
   afterEach(() => {

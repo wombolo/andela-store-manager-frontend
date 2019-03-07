@@ -1,0 +1,183 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ViewModifyProduct Component should match snapshot 1`] = `
+<div
+  className="row clearfix products-grid"
+>
+  <div
+    className="col-10 m-0-auto m-t-5"
+  >
+    <h3 />
+    <form
+      onSubmit={[Function]}
+    >
+      <div
+        className="row"
+      >
+        <div
+          className="col-3"
+        >
+          <figure
+            className="image-holder"
+          >
+            <img
+              alt="image"
+              src=""
+            />
+            <input
+              id="image_file"
+              onChange={[Function]}
+              type="file"
+            />
+          </figure>
+        </div>
+        <div
+          className="col-7"
+        >
+          <table
+            border="0"
+            className="product-single-table table-striped"
+            width="100%"
+          >
+            <tbody>
+              <tr>
+                <td>
+                  <label
+                    htmlFor="title"
+                  >
+                    Name
+                  </label>
+                </td>
+                <td>
+                  <input
+                    defaultValue=""
+                    id="title"
+                    onChange={[Function]}
+                    required={true}
+                    type="text"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label
+                    htmlFor="description"
+                  >
+                    Description
+                  </label>
+                </td>
+                <td>
+                  <textarea
+                    id="description"
+                    onChange={[Function]}
+                    required={true}
+                    rows={15}
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label
+                    htmlFor="price"
+                  >
+                    Price
+                  </label>
+                </td>
+                <td>
+                  <input
+                    defaultValue={0}
+                    id="price"
+                    onChange={[Function]}
+                    required={true}
+                    step=".01"
+                    type="number"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label
+                    htmlFor="quantity"
+                  >
+                    Quantity Available
+                  </label>
+                </td>
+                <td>
+                  <input
+                    defaultValue={0}
+                    id="quantity"
+                    onChange={[Function]}
+                    required={true}
+                    type="number"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label>
+                    Product Category
+                  </label>
+                </td>
+                <td>
+                  <select>
+                    <option>
+                      Fiction/ Sci-Fi
+                    </option>
+                    <option>
+                      Comedy
+                    </option>
+                    <option>
+                      Romance
+                    </option>
+                    <option>
+                      Adventure
+                    </option>
+                    <option>
+                      Thriller
+                    </option>
+                    <option>
+                      Drama
+                    </option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label
+                    htmlFor="price"
+                  >
+                    Creation Date
+                  </label>
+                </td>
+                <td>
+                  Invalid Date
+                </td>
+              </tr>
+              <tr>
+                <td>
+                   
+                </td>
+                <td>
+                  <button
+                    className="btn btn-primary"
+                    type="submit"
+                  >
+                    Update
+                  </button>
+                  <button
+                    className="btn btn-danger"
+                    onClick={[Function]}
+                    type="reset"
+                  >
+                    Delete Product
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+`;
