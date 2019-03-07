@@ -35,7 +35,7 @@ export class AddProfile extends Component {
 
                 <div className="col-3">
                   <figure className="image-holder">
-                    <img alt={'image'} src="../assets/images/profile/team-7.jpg" />
+                    <img alt={'image'} src={require("../assets/images/profile/team-7.jpg")} />
                     <input type={'file'} id={'image'}
                            onChange={ (e) => this.handleChange({
                              target:{

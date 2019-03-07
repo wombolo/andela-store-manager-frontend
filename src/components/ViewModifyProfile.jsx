@@ -56,7 +56,7 @@ export class ViewModifyProfile extends Component {
 
               <div className="col-3">
                 <figure className="image-holder">
-                  <img alt={'image'} src={`../assets/images/profile/${this.state.image}`} />
+                  <img alt={'image'} src={require(`../assets/images/profile/${this.state.image}`)} />
                   <input type={'file'} id={'image_file'} onChange={this.handleChange}/>
                 </figure>
               </div>

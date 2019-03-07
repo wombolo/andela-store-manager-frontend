@@ -28,7 +28,7 @@ exports[`AddProduct Component should match snapshot 1`] = `
             >
               <img
                 alt="image"
-                src="../assets/images/products/product-1.png"
+                src=""
               />
               <input
                 id="image_file"

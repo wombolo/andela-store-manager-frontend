@@ -58,6 +58,11 @@ export class Menu extends Component {
   render() {
     return (
       <div className='sidebar-menu'>
+        <div>
+          <NavLink to="/" className='links'>
+            <img src={require('../assets/images/logo.png')}/>
+          </NavLink>
+        </div>
         {this.headerLinks(this.props.auth)}
       </div>
     )

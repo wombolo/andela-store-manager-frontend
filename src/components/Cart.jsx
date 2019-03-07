@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
-import {getAllCartItems, handleCheckout} from "../actions/productActions";
+import {getAllCartItems, handleCheckout, removeFromStoreCart} from "../actions/productActions";
 
 export class Cart extends Component {
   state = {};
@@ -24,8 +24,11 @@ export class Cart extends Component {
   handleRemoveFromCart = (id) =>{
     const cart = this.state.cart.splice(0);
     const position =  cart.findIndex((elem) => (elem.id === id ));
-    cart.splice(position);
-    this.setState({cart})
+    cart.splice(position, 1);
+
+    this.setState({cart: cart});
+    this.props.removeFromStoreCart(cart);
+
   };
 
   handleSubmit = (event) => {
@@ -73,7 +76,7 @@ export class Cart extends Component {
                     <tr key={iteration}>
                     <td>{iteration}</td>
                     <td><code>{Math.random().toString(36).substring(7).toUpperCase()}</code></td>
-                    <td><img src={`../assets/images/${item.image}`} /></td>
+                    <td><img src={require(`../assets/images/${item.image}`)} /></td>
                     <td>{item.title}</td>
                     <td>$ {item.price}</td>
                     <td><input type={'number'}
@@ -118,6 +121,8 @@ export class Cart extends Component {
 
 Cart.propTypes = {
   getAllCartItems: PropTypes.func.isRequired,
+  handleCheckout: PropTypes.func.isRequired,
+  removeFromStoreCart: PropTypes.func.isRequired,
   cart: PropTypes.array.isRequired,
   profile: PropTypes.shape({}).isRequired,
 };
@@ -128,6 +133,6 @@ export const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps,{
-  getAllCartItems, handleCheckout
+  getAllCartItems, handleCheckout, removeFromStoreCart
 })
 (Cart);

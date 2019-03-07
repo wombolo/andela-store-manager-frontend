@@ -33,7 +33,7 @@ export class TopBar extends Component {
               </div>
 
               <div className='col-3'>
-                <img src={`../assets/images/profile/${profile.image}`} className='top-bar-logo'/>
+                <img src={require(`../assets/images/profile/${profile.image}`)} className='top-bar-logo'/>
               </div>
             </Link>
 
