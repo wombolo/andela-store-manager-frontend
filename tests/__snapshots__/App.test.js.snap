@@ -11,7 +11,7 @@ exports[`App Component renders without crashing 1`] = `
       <Connect(Menu) />
     </div>
     <div
-      className="col-8"
+      className="col-8 min-height-100vh"
     >
       <Connect(TopBar) />
       <Routes />

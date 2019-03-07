@@ -3,7 +3,10 @@
 exports[`Home Component should match snapshot 1`] = `
 <div>
   <h1>
-    Home Page
+    Vy Store Manager
   </h1>
+  <p>
+    Welcome to Vy Store Manager, navigate to login link on the menu to get started
+  </p>
 </div>
 `;
