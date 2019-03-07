@@ -9,8 +9,8 @@
     "test": "jest --env=jsdom  --coverage --colors -u",
     "start:dev": "webpack-dev-server --open --mode development",
     "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
-    "heroku-prebuild": "npm install",
-    "heroku-postbuild": "npm build"
+    "heroku-prebuild": "npm run-script install",
+    "heroku-postbuild": "npm run-script build"
   },
   "keywords": [],
   "author": "",
