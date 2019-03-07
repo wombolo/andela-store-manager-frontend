@@ -94,6 +94,7 @@ export const deleteProduct = (id) => async (dispatch) =>{
     window.location.replace('/all-products');
   }
   catch(e){
+    console.log(e);
     handleLogout(e);
     await Notify.notifyError('Error Occurred while deleting. Please try again')
   }
