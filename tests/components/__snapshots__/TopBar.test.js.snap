@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TopBar Component should match snapshot 1`] = `
+<div
+  className="row"
+>
+  <div
+    className="col-7"
+  >
+    <h4>
+      User Account - 
+      <span
+        className="text-primary"
+      >
+        ADMIN
+      </span>
+    </h4>
+  </div>
+  <div
+    className="col-3"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="col-3"
+      >
+        <Link
+          replace={false}
+          to="/cart"
+        >
+          <h6>
+            Cart 
+            <i
+              className="cart-count"
+            >
+               
+            </i>
+          </h6>
+        </Link>
+      </div>
+      <Link
+        replace={false}
+        style={
+          Object {
+            "display": "contents",
+          }
+        }
+        to="/profile/1"
+      >
+        <div
+          className="col-4"
+        >
+          <h5>
+            Akano
+             
+            Peter
+          </h5>
+        </div>
+        <div
+          className="col-3"
+        >
+          <img
+            className="top-bar-logo"
+            src=""
+          />
+        </div>
+      </Link>
+    </div>
+  </div>
+</div>
+`;
