@@ -4,6 +4,7 @@ import moxios from 'moxios';
 import thunk from 'redux-thunk';
 import sinon from 'sinon';
 import mockLocalStorage from '../__mocks__/localStorageMock';
+import vyStoreBackend  from '../../src/apis/vyStoreBackend';
 
 import { ACTION_TYPES } from '../../src/actions/action-types';
 import {
@@ -26,8 +27,11 @@ let store;
 
 describe('PRODUCT actions', () => {
   beforeEach(() => {
+    // moxios.install(vyStoreBackend);
     moxios.install();
     store = mockStore({});
+    jest.setTimeout(10000);
+
     global.localStorage = mockLocalStorage;
     localStorage.setItem('authToken', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwcm9maWxlIjp7ImlkIjoxLCJmaXJzdG5hbWUiOiJBa2FubyIsImxhc3RuYW1lIjoiUGV0ZXIiLCJlbWFpbCI6ImVsa2Vuem9tMUBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpbWFnZSI6InRlYW0tNy5qcGciLCJwYXNzd29yZCI6bnVsbH0sImlhdCI6MTU1MTgwOTA0NCwiZXhwIjoxNTUxODk1NDQ0fQ.qbhb9xZ28nw-_-NP2euYy_TmePPvaj2LAPCyQ5Bva_E');
   });
@@ -148,7 +152,7 @@ describe('PRODUCT actions', () => {
       type: ACTION_TYPES.PRODUCT_DELETED,
     }];
 
-    store.dispatch(deleteProduct())
+    store.dispatch(deleteProduct(1))
       .then(() => {
         expect(store.getActions()).toEqual(expectedActions);
         done();

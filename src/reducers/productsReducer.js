@@ -1,7 +1,7 @@
 import {ACTION_TYPES} from '../actions/action-types';
 
 const {
-  GET_ALL_PRODUCTS, ADD_TO_CART,CART_UPDATED, GET_SINGLE_PRODUCTS
+  GET_ALL_PRODUCTS, ADD_TO_CART,CART_UPDATED, GET_SINGLE_PRODUCTS, REMOVE_FROM_CART
 } = ACTION_TYPES;
 
 let newCart = [];
@@ -65,6 +65,13 @@ export default function (state = initialState, action) {
       return{
         ...state,
         cart: newCart
+      };
+
+    case 2:
+      localStorage.setItem('userCart', JSON.stringify(action.payload));
+      return{
+        ...state,
+        cart: action.payload
       };
 
     case CART_UPDATED:

@@ -35,7 +35,7 @@ export class AddProduct extends Component {
 
                 <div className="col-3">
                   <figure className="image-holder">
-                    <img alt={'image'} src="../assets/images/products/product-1.png" />
+                    <img alt={'image'} src={require("../assets/images/products/product-1.png") } />
                     <input type={'file'} id={'image_file'}
                            onChange={ (e) => this.handleChange({
                              target:{

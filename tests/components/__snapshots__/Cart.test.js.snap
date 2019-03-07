@@ -59,12 +59,12 @@ exports[`Cart Component should match snapshot 1`] = `
               </td>
               <td>
                 <code>
-                  4L8IVK
+                  305S4
                 </code>
               </td>
               <td>
                 <img
-                  src="../assets/images/products/product-5.png"
+                  src=""
                 />
               </td>
               <td>
@@ -106,12 +106,12 @@ exports[`Cart Component should match snapshot 1`] = `
               </td>
               <td>
                 <code>
-                  KCT81
+                  EVZ2O
                 </code>
               </td>
               <td>
                 <img
-                  src="../assets/images/products/product-5.png"
+                  src=""
                 />
               </td>
               <td>

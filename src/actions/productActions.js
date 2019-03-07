@@ -7,7 +7,7 @@ import vyStoreBackendAPI from '../apis/vyStoreBackend'
 const {
   GET_ALL_PRODUCTS, ADD_TO_CART, CART_UPDATED, GET_SINGLE_PRODUCTS,
   GET_ALL_IN_CART, CHECK_OUT_PROCESSED, CREATE_NEW_PRODUCT,
-  PRODUCT_DELETED, EDIT_PRODUCT
+  PRODUCT_DELETED, EDIT_PRODUCT, REMOVE_FROM_CART
 } = ACTION_TYPES;
 
 export const setAllProducts = payload => ({
@@ -95,7 +95,6 @@ export const deleteProduct = (id) => async (dispatch) =>{
   }
   catch(e){
     handleLogout(e);
-    // console.log(e);
     await Notify.notifyError('Error Occurred while deleting. Please try again')
   }
 };
@@ -113,6 +112,16 @@ export const cartUpdated = () =>({
 export const addToCart = (payload) => dispatch =>{
   dispatch(addToCartAction(payload));
   dispatch(cartUpdated());
+};
+
+
+export const cartUpdatedAfterDelete = (payload) =>({
+  type: REMOVE_FROM_CART,
+  payload
+});
+
+export const removeFromStoreCart = (payload) => dispatch =>{
+  dispatch(cartUpdatedAfterDelete(payload));
 };
 
 export const checkOutProcessed = () =>({

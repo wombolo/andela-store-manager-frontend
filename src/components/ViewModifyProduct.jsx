@@ -52,7 +52,7 @@ export class ViewModifyProduct extends Component {
 
                   <div className="col-3">
                     <figure className="image-holder">
-                      <img alt={'image'} src={`../assets/images/${this.state.image}`} />
+                      <img alt={'image'} src={require(`../assets/images/${this.state.image}`)} />
                       <input type={'file'} id={'image_file'} onChange={this.handleChange}/>
                     </figure>
                   </div>
@@ -127,7 +127,7 @@ export class ViewModifyProduct extends Component {
               <div className="row">
                 <div className="col-3">
                   <figure className="image-holder">
-                    <img alt={'image'} src={`../assets/images/${this.state.image}`} />
+                    <img alt={'image'} src={require(`../assets/images/${this.state.image}`)} />
                   </figure>
                 </div>
 

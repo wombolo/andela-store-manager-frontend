@@ -15,6 +15,7 @@ let wrapper;
 const props = {
   getAllCartItems: () => Promise.resolve(),
   handleCheckout: () => Promise.resolve(),
+  removeFromStoreCart: () => Promise.resolve(),
   cart:[
     {id: 1, title: "Bonjour", image: "products/product-5.png",price: 150, quantity: 3, cartQty: '3', status: "active"},
     {id: 2, title: "Bonjour", image: "products/product-5.png",price: 150, quantity: 3, cartQty: '3', status: "active"},
@@ -58,7 +59,7 @@ describe('Cart Component', () => {
     });
 
     it('triggers handleQuantityChange()', () => {
-      const CartComp = wrapper.find('Cart')
+      const CartComp = wrapper.find('Cart');
       sinon.spy(CartComp.instance(), 'handleQuantityChange');
 
       CartComp.instance().handleQuantityChange({

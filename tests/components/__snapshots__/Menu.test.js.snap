@@ -4,6 +4,18 @@ exports[`Menu Component should match snapshot 1`] = `
 <div
   className="sidebar-menu"
 >
+  <div>
+    <NavLink
+      activeClassName="active"
+      aria-current="page"
+      className="links"
+      to="/"
+    >
+      <img
+        src=""
+      />
+    </NavLink>
+  </div>
   <ul>
     <li>
       <NavLink

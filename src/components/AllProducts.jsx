@@ -16,6 +16,10 @@ export class AllProducts extends Component {
   render() {
     const {products} = this.props.products;
 
+    if (products.length < 1){
+      return(<p>Now Loading. Please be patient</p>)
+    }
+
     return (
       <div>
         <h1>All Products</h1>
@@ -27,7 +31,7 @@ export class AllProducts extends Component {
                 <div key={product.id}>
                   <figure className="image-holder">
                     <Link to={`/edit-product/${product.id}`}>
-                      <img src={`../assets/images/${product.image}`}/>
+                      <img src={require(`../assets/images/${product.image}`)} />
                     </Link>
                   </figure>
                   <div className="row">

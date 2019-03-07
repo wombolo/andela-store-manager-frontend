@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GuestRoute Component should match snapshot 1`] = `
+<Route
+  location={Object {}}
+  render={[Function]}
+/>
+`;

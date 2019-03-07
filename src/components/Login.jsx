@@ -21,7 +21,6 @@ export class Login extends Component {
       password: this.state.password,
     };
     this.props.loginUser(userData, this.props.history);
-    this.setState({ [event.target.name]: '' });
   };
 
   handleChange = (event) => {
@@ -84,8 +83,8 @@ export class Login extends Component {
   }
 }
 Login.propTypes = {
-  auth: PropTypes.object.isRequired,
-  history: PropTypes.object.isRequired,
+  auth: PropTypes.shape({}).isRequired,
+  history: PropTypes.shape({}).isRequired,
   loginUser: PropTypes.func.isRequired,
 };
 
