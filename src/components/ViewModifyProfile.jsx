@@ -42,7 +42,7 @@ export class ViewModifyProfile extends Component {
   render() {
     const { profile, authProfile } = this.props;
 
-    const imageFile = require(`../assets/images/${this.state.image}`);
+    // const imageFile = require(`../assets/images/profile/${this.state.image}`);
 
     return (
       <div className="row clearfix products-grid">
@@ -55,7 +55,7 @@ export class ViewModifyProfile extends Component {
 
               <div className="col-3">
                 <figure className="image-holder">
-                  <img alt={'image'} src={imageFile} />
+                  <img alt={'image'} src={require(`../assets/images/profile/${this.state.image}`)} />
                   <input type={'file'} id={'image_file'}
                          onChange={ (e) => this.handleChange({
                            target:{
