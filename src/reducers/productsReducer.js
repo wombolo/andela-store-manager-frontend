@@ -67,7 +67,7 @@ export default function (state = initialState, action) {
         cart: newCart
       };
 
-    case 2:
+    case REMOVE_FROM_CART:
       localStorage.setItem('userCart', JSON.stringify(action.payload));
       return{
         ...state,
