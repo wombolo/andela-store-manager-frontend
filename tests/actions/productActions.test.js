@@ -147,17 +147,17 @@ describe('PRODUCT actions', () => {
     done();
   });
 
-  // it(`dispatches PRODUCT_DELETED`, (done) => {
-  //   const expectedActions = [{
-  //     type: ACTION_TYPES.PRODUCT_DELETED,
-  //   }];
-  //
-  //   store.dispatch(deleteProduct('2'))
-  //     .then(() => {
-  //       expect(store.getActions()).toEqual(expectedActions);
-  //       done();
-  //     });
-  // });
+  it(`dispatches PRODUCT_DELETED`, (done) => {
+    const expectedActions = [{
+      type: ACTION_TYPES.PRODUCT_DELETED,
+    }];
+
+    store.dispatch(deleteProduct('3'))
+      .then(() => {
+        expect(store.getActions()).toEqual(expectedActions);
+        done();
+      });
+  });
 
   it(`dispatches EDIT_PRODUCT `, (done) => {
     const payloadCart = {title: 'Hello', quantity: 12, id: 2, price: 400, description: 'Hello'};

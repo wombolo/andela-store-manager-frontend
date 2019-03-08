@@ -75,7 +75,7 @@ describe('Products Reducer', () => {
       payload: products.singleProduct
     };
     const newState = productsReducer(initialState, action);
-    expect(newState.cart).toEqual([products.singleProduct]);
+    expect(newState.cart).toEqual(products.singleProduct);
   });
 
 
