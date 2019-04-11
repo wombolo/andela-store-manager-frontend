@@ -1,11 +1,13 @@
 pipeline {
     agent any
 
-    tools {nodejs "nodeJS"}
+    tools {
+        nodejs "nodeJS"
+    }
 
     stages {
 
-        stage('Checkout repo') {
+        stage('Clone repo') {
             steps {
                 git branch: 'staging',  url: 'https://github.com/wombolo/andela-store-manager-frontend'
             }
@@ -17,7 +19,7 @@ pipeline {
             }
         }
 
-        stage('Test') {
+        stage('Run tests') {
             steps {
                 sh 'npm test'
             }
